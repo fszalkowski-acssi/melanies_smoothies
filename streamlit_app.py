@@ -1,5 +1,6 @@
 # Import python packages
 import streamlit as st
+import requests as rqs;
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -42,3 +43,6 @@ if ingredients:
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
         st.success('Your smoothie is ordered, ' + name + '!', icon="✅")
+
+smoothiefroot_response = rqs.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
