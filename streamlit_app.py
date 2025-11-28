@@ -45,4 +45,4 @@ if ingredients:
         st.success('Your smoothie is ordered, ' + name + '!', icon="✅")
 
 smoothiefroot_response = rqs.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response)
+st.text(smoothiefroot_response.json())
